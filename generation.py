@@ -76,7 +76,7 @@ def generate_sentences(category_prompt, num_sentences=5):
 expanded_data = {}
 for category, prompt in themes.items():
     print(f"Generating sentences for category: {category}")
-    expanded_data[category] = generate_sentences(prompt, num_sentences=20)
+    expanded_data[category] = generate_sentences(prompt, num_sentences=300)
 
 
 output_path = "cleaned_generated_train.json"
