@@ -1,6 +1,11 @@
 import random
 import pandas as pd
 
+# Attempt at doing lexical juggling but did not converge, as I would have had to translate them into a new language,
+# Or do the same work in all languages, which was not efficient. 
+# Since translating with LLMs has the same token costs as generating, we ended up choosing to generate new data rather than
+# using lexical juggling, preferring data quality over quantity.
+
 #define df_new
 df_new = pd.read_csv('train_submission.csv') 
 
@@ -30,7 +35,7 @@ common_words = [
 # Function to generate more diversified sentences within length constraints
 def generate_diversified_sentence(min_len=40, max_len=128):
     while True:
-        sentence_length = random.randint(8, 25)  # Increase word count variation
+        sentence_length = random.randint(8, 25) 
         sentence = " ".join(random.choices(common_words, k=sentence_length)).capitalize() + "."
         if min_len <= len(sentence) <= max_len:
             return sentence
